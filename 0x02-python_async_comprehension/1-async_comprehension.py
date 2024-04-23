@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Async Comprehension"""
 import typing
+
 async_generator = __import__('0-async_generator').async_generator
 
 
@@ -10,4 +11,4 @@ async def async_comprehension() -> typing.List[float]:
     an async comprehensing over async_generator, then return the
     10 random numbers.
     """
-    return  [num async for num in async_generator()]
+    return [num async for num in async_generator()]
