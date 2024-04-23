@@ -2,10 +2,10 @@
 """Async Generator"""
 import asyncio
 import random
-from typing import AsyncGenerator
+import typing
 
 
-async def async_generator() -> AsyncGenerator[float, None]:
+async def async_generator() -> typing.Generator[float, None, None]:
     """
     Write a coroutine called async_generator that takes no arguments.
     The coroutine will loop 10 times, each time asynchronously wait 1
@@ -14,4 +14,4 @@ async def async_generator() -> AsyncGenerator[float, None]:
     """
     for _ in range(10):
         await asyncio.sleep(1)
-        yield random.uniform(0, 10)
+        yield random.random() * 10
