@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Parameterize a unit test"""
 import unittest
+from typing import Dict, Tuple, Union
 from parameterized import parameterized
 from . import utils
 
@@ -19,7 +20,10 @@ class TestAccessNestedMap(unittest.TestCase):
         ({"a": {"b": 2}}, ("a",), {"b": 2}),
         ({"a": {"b": 2}}, ("a", "b"), 2)
     ])
-    def test_access_nested_map(self, nested_map, path, expec_res):
+    def test_access_nested_map(self, nested_map: Dict,
+                               path: Tuple,
+                               expec_res: Union[Dict, int]) -> None:
+        """a method that test and return the expected result"""
         self.assertEqual(utils.access_nested_map(nested_map, path), expec_res)
 
 
