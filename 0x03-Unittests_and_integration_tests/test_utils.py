@@ -3,7 +3,11 @@
 import unittest
 from typing import Dict, Tuple, Union
 from parameterized import parameterized
-from . import utils
+from utils import (
+    access_nested_map,
+    get_json,
+    memoize,
+)
 
 
 class TestAccessNestedMap(unittest.TestCase):
@@ -22,9 +26,9 @@ class TestAccessNestedMap(unittest.TestCase):
     ])
     def test_access_nested_map(self, nested_map: Dict,
                                path: Tuple,
-                               expec_res: Union[Dict, int]) -> None:
+                               expected: Union[Dict, int]) -> None:
         """a method that test and return the expected result"""
-        self.assertEqual(utils.access_nested_map(nested_map, path), expec_res)
+        self.assertEqual(access_nested_map(nested_map, path), expected)
 
 
 if __name__ == '__main__':
