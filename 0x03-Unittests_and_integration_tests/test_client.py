@@ -44,7 +44,7 @@ class TestGithubOrgClient(unittest.TestCase):
             self.assertEqual(GithubOrgClient("google")
                              ._public_repos_url,
                              "https://api.github.com/users/google/repos",)
-            
+
     @patch("client.get_json")
     def test_public_repos(self, mock_get_json: MagicMock) -> None:
         """Tests the public_repos method."""
@@ -111,7 +111,6 @@ class TestGithubOrgClient(unittest.TestCase):
         client_has_licence = gh_org_client.has_license(repo, key)
         self.assertEqual(client_has_licence, expected)
 
-
     @parameterized_class([
         {
             'org_payload': TEST_PAYLOAD[0][0],
@@ -156,6 +155,7 @@ class TestGithubOrgClient(unittest.TestCase):
         def tearDownClass(cls) -> None:
             """Removes the class fixtures after running all tests."""
             cls.get_patcher.stop()
+
 
 if __name__ == '__main__':
     unittest.main()
